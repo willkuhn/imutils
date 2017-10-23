@@ -191,11 +191,9 @@ def build_montages(image_list, image_shape, montage_shape):
     img = cv2.imread('lena.jpg')
     # duplicate image 25 times
     num_imgs = 25
-    img_list = []
-    for i in xrange(num_imgs):
-        img_list.append(img)
+    img_list = [img for i in range(num_imgs)]
     # convert image list into a montage of 256x256 images tiled in a 5x5 montage
-    montages = make_montages_of_images(img_list, (256, 256), (5, 5))
+    montages = build_montages(img_list, (256, 256), (5, 5))
     # iterate through montages and display
     for montage in montages:
         cv2.imshow('montage image', montage)
